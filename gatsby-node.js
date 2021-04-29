@@ -11,14 +11,25 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
   const result = await graphql(
     `
       {
-        allMarkdownRemark(
+        allMdx(
           sort: { fields: [frontmatter___date], order: ASC }
           limit: 1000
         ) {
-          nodes {
-            id
-            fields {
-              slug
+          edges {
+            node {
+              id
+              body
+              excerpt
+              timeToRead
+              fields {
+                slug
+              }
+              frontmatter {
+                title
+                date(formatString: "MMMM DD, YYYY")
+                tags
+                published
+              }
             }
           }
         }
@@ -34,34 +45,32 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
     return
   }
 
-  const posts = result.data.allMarkdownRemark.nodes
+  const edges = result.data.allMdx.edges
 
   // Create blog posts pages
   // But only if there's at least one markdown file found at "content/blog" (defined in gatsby-config.js)
   // `context` is available in the template as a prop and as a variable in GraphQL
 
-  if (posts.length > 0) {
-    posts.forEach((post, index) => {
-      const previousPostId = index === 0 ? null : posts[index - 1].id
-      const nextPostId = index === posts.length - 1 ? null : posts[index + 1].id
+  edges.forEach((edge, index) => {
+    const previousPost = index === edges.length - 1 ? null : edges[index + 1].node
+    const nextPost = index === 0 ? null : edges[index - 1].node
 
-      createPage({
-        path: post.fields.slug,
-        component: blogPost,
-        context: {
-          id: post.id,
-          previousPostId,
-          nextPostId,
-        },
-      })
+    createPage({
+      path: edge.node.fields.slug,
+      component: blogPost,
+      context: {
+        id: edge.node.id,
+        previousPost,
+        nextPost,
+      },
     })
-  }
+  })
 }
 
 exports.onCreateNode = ({ node, actions, getNode }) => {
   const { createNodeField } = actions
 
-  if (node.internal.type === `MarkdownRemark`) {
+  if (node.internal.type === `Mdx`) {
     const value = createFilePath({ node, getNode })
 
     createNodeField({
