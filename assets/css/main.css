@@ -1,0 +1,536 @@
+/*****************************************************
+ * Table of Contents
+ *****************************************************
+ * 1. Root Variables
+ * 2. Typography and Interactive Elements Styling
+ * 3. Header and Navigation Styles
+ * 4. Base Global Styles
+ * 5. Form and Content Element Resets
+ * 6. Accessibility and Animation
+ *****************************************************/
+
+/*************************************************
+ * Root Variables (1)
+ *
+ * Theme Colors
+ * - Background and text colors for main and widget areas
+ * - Accent and hyperlink colors for interactive elements
+ * - Button colors and hover/focus states
+ * - Shadows, borders, and outlines for UI consistency
+ *
+ * Spacing
+ * - Responsive spacing values with `clamp()` for fluid layouts
+ * - Range-defined variables (e.g., `--space-xs-s`) for adaptive spacing
+ *
+ * Typographic Scale
+ * - Typographic scale using responsive `clamp()` units
+ * - Steps from `--step--1` to `--step-5` to support hierarchy
+ **************************************************/
+
+:root {
+  /* Theme Colors */
+  /* main background ** default widget background */
+  --bg-color: #fafafa;
+  /* main text ** widget text ** border of checkboxes and radio buttons */
+  --text-color: #222;
+  /* secondary background */
+  --subtle-color: #fbfcfe;
+  /* secondary background */
+  --border-soft-color: #eee;
+  /* borders ** lines */
+  --border-color: #444;
+  /* main shadow */
+  --shadow-color: #000;
+  /* input background ** select background */
+  --input-color: #fff;
+  /* focus outline */
+  --outline-color: #396493;
+  /* hyperlink color */
+  --hyperlink-color: #5252ff;
+  /* gradient animation colors */
+  --gradient-side-color: #058ef0;
+  --gradient-center-color: #38abfc;
+  /* main navigation links */
+  --select-text: #002c61;
+  /* button background */
+  --button-bg: #396493;
+  /* button text background */
+  --button-color: #ffffff;
+  /* button background  (hover) */
+  --button-hover-bg: #253c56;
+  /* button text background (hover) */
+  --button-hover-color: #ffffff;
+  /* button background (focus) */
+  --button-focus-bg: #101419;
+  /* button text background (focus) */
+  --button-focus-color: #fafafa;
+  /* button border width */
+  --button-border-width: 3px;
+  /* button border style */
+  --button-border-style: solid;
+  /* button border color */
+  --button-border-color: var(--button-bg);
+  /* button border radius */
+  --button-radius: 0.5em;
+
+  /* Spacing */
+  --space-3xs: clamp(0.3125rem, 0.3125rem + 0vw, 0.3125rem);
+  --space-2xs: clamp(0.5625rem, 0.5408rem + 0.1087vw, 0.625rem);
+  --space-xs: clamp(0.875rem, 0.8533rem + 0.1087vw, 0.9375rem);
+  --space-s: clamp(1.125rem, 1.0815rem + 0.2174vw, 1.25rem);
+  --space-m: clamp(1.6875rem, 1.6223rem + 0.3261vw, 1.875rem);
+  --space-l: clamp(2.25rem, 2.163rem + 0.4348vw, 2.5rem);
+  --space-xl: clamp(3.375rem, 3.2446rem + 0.6522vw, 3.75rem);
+  --space-2xl: clamp(4.5rem, 4.3261rem + 0.8696vw, 5rem);
+  --space-3xl: clamp(6.75rem, 6.4891rem + 1.3043vw, 7.5rem);
+  --space-3xs-2xs: clamp(0.3125rem, 0.2038rem + 0.5435vw, 0.625rem);
+  --space-2xs-xs: clamp(0.5625rem, 0.4321rem + 0.6522vw, 0.9375rem);
+  --space-xs-s: clamp(0.875rem, 0.7446rem + 0.6522vw, 1.25rem);
+  --space-s-m: clamp(1.125rem, 0.8641rem + 1.3043vw, 1.875rem);
+  --space-s-l: clamp(1.125rem, 0.6467rem + 2.3913vw, 2.5rem);
+  --space-m-l: clamp(1.6875rem, 1.4049rem + 1.413vw, 2.5rem);
+  --space-l-xl: clamp(2.25rem, 1.7283rem + 2.6087vw, 3.75rem);
+  --space-xl-2xl: clamp(3.375rem, 2.8098rem + 2.8261vw, 5rem);
+  --space-2xl-3xl: clamp(4.5rem, 3.4565rem + 5.2174vw, 7.5rem);
+
+  /* Typographic Scale */
+  --step--1: clamp(0.8333rem, 0.7754rem + 0.2899vw, 1rem);
+  --step-0: clamp(1rem, 0.913rem + 0.4348vw, 1.25rem);
+  --step-1: clamp(1.2rem, 1.0739rem + 0.6304vw, 1.5625rem);
+  --step-2: clamp(1.44rem, 1.2615rem + 0.8924vw, 1.9531rem);
+  --step-3: clamp(1.728rem, 1.4799rem + 1.2407vw, 2.4414rem);
+  --step-4: clamp(2.0736rem, 1.7334rem + 1.7011vw, 3.0518rem);
+  --step-5: clamp(2.4883rem, 2.027rem + 2.3067vw, 3.8147rem);
+
+  /* Additional */
+  --bg-size: 400%;
+}
+
+/*************************************************
+ * Typography and Interactive Elements Styling (2)
+ *
+ * Headings:
+ * - `h1`, `h2`, `h3` are sized using a typographic scale 
+ *   (`--step-5`, `--step-4`, `--step-3`) for consistent 
+ *   vertical rhythm and hierarchy.
+ * - A reduced `line-height` of 1.1 for headings, buttons, 
+ *   inputs, and labels ensures tighter, more visually 
+ *   compact text elements.
+ *
+ * Paragraphs:
+ * - Styled with standard spacing (`1.5rem` top/bottom) 
+ *   and a readable `line-height` of 1.5.
+ * - `max-width` of 75 characters (75ch) for improved readability.
+ *
+ * Underlined Links:
+ * - `.underline` style includes inherit font sizing, hyperlink 
+ *   color, and a solid underline.
+ * - On hover and focus, background color and outline enhance 
+ *   accessibility and visual feedback.
+ *
+ * Gradient Text Effect:
+ * - `.gradient-ripple` class applies a linear gradient 
+ *   background that scrolls horizontally.
+ * - `background-clip: text` reveals the gradient effect 
+ *   within the text, with transparent color for a vibrant 
+ *   visual effect.
+ **************************************************/
+
+h1 {
+  font-size: var(--step-5);
+}
+
+h2 {
+  font-size: var(--step-4);
+}
+
+h3 {
+  font-size: var(--step-3);
+}
+
+h1,
+h2,
+h3,
+h4,
+button,
+input,
+label {
+  line-height: 1.1;
+}
+
+main p {
+  margin: 1.5rem 0;
+  font-size: var(--step-0);
+  line-height: 1.5;
+  max-width: 75ch;
+}
+
+a.underline,
+a.underline:link,
+a.underline:visited {
+  font-size: inherit;
+  color: var(--hyperlink-color);
+  text-decoration: underline solid var(--hyperlink-color);
+  font-weight: 500;
+}
+
+a.underline:hover,
+a.underline:focus {
+  background-color: var(--subtle-color);
+  outline: 2px solid var(--border-color);
+  outline-offset: 1px;
+}
+
+.gradient-ripple {
+  text-shadow: var(--text-color) -2px -2px;
+  background: linear-gradient(
+      90deg,
+      var(--gradient-side-color),
+      var(--gradient-center-color),
+      var(--gradient-side-color)
+    )
+    0 0 / var(--bg-size) 100%;
+  color: transparent;
+  background-clip: text;
+}
+
+/*************************************************
+ * Header and Navigation Styles (3)
+ *
+ * Header Styles:
+ * - `#site-header` applies a double bottom border for separation.
+ * - `#site-header__container` is flex-based for responsive layout, 
+ *   stacking in a column on small screens, switching to row at 600px.
+
+ * Logo Link:
+ * - `.logo-link` displayed as a block element with hover color fill.
+
+ * Navigation Menu:
+ * - `#site-nav` and `#site-menu` establish structure with flex alignment
+ *   and consistent spacing between items via `gap`.
+ * - Links within `#site-nav` use transparent border for hover transition,
+ *   boldening and highlighting current page links for accessibility.
+
+ * Media Query Adjustments (600px+):
+ * - `#site-header__container` shifts to row layout, aligning nav items
+ *   with increased spacing.
+ **************************************************/
+
+#site-header {
+  border-bottom: 5px double var(--border-soft-color);
+  padding: 0;
+}
+
+#site-header__container {
+  display: flex;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  margin: 0 auto;
+}
+
+.logo-link {
+  display: block;
+}
+
+.logo-link:hover {
+  fill: var(--hyperlink-color);
+}
+
+#site-nav {
+  margin: 0;
+}
+
+#site-menu {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2xs);
+  list-style: none;
+  padding: 0;
+}
+
+#site-nav a {
+  font-size: var(--step-1);
+  color: var(--select-text);
+  text-decoration: none;
+  margin: 0;
+  padding: var(--space-2xs) var(--space-xs);
+  border-bottom: 2px solid transparent;
+}
+
+#site-nav a:hover {
+  border-color: currentColor;
+}
+
+#site-nav a[aria-current="page"],
+#site-nav a[aria-current="page"]:hover,
+#site-nav a[aria-current="page"]:focus {
+  font-weight: 600;
+  border-bottom: 2px solid currentColor;
+}
+
+@media only screen and (min-width: 600px) {
+  #site-header {
+    padding: 0 1em;
+  }
+  #site-header__container {
+    -ms-flex-direction: row;
+    justify-content: space-between;
+    flex-direction: row;
+    align-items: center;
+    align-content: center;
+  }
+
+  #site-menu {
+    -ms-flex-direction: row;
+    flex-direction: row;
+    justify-items: space-between;
+    align-items: center;
+    gap: var(--space-l);
+  }
+}
+
+/*************************************************
+ * Base Global Styles (4)
+ * - Sets root typography, colors, and layout defaults
+ *
+ * Main Layout and Spacing:
+ * - `.page-wrapper`: Centers content with adjustable width
+ * - `.flow`: Applies consistent vertical spacing between elements
+ * - `.section`: Adds basic padding for section blocks
+ *
+ * Responsive Flex Layout:
+ * - `.split-section`: Organizes content in a column layout by default,
+ *   switching to a row layout on larger screens (768px+)
+ *
+ * Footer Styling:
+ * - `#footer__container`: Defines footer alignment and styling with a
+ *   solid border and shadow effect
+ * - `#footer__list`: Arranges footer items in a horizontal layout with
+ *   spacing adjustments
+ **************************************************/
+
+body,
+html {
+  margin: 0;
+  font-family: "Roboto", sans-serif;
+}
+
+body {
+  min-height: 100vh;
+  line-height: 1.5;
+  height: 100%;
+  overflow-x: hidden;
+  padding: 0;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  font-size: var(--step-0);
+}
+
+html {
+  font-size: 100%;
+}
+
+.page-wrapper {
+  width: 80%;
+  margin: 0 auto 10ex;
+  padding-top: var(--space-m);
+}
+
+.flow > * + * {
+  margin-top: var(--flow-space, 1em);
+}
+
+.section {
+  padding: 1em;
+}
+
+.split-section {
+  display: flex;
+  justify-content: space-between;
+  -ms-flex-direction: column;
+  flex-direction: column;
+}
+
+.split-section div {
+  width: 100%;
+}
+
+.split-section img {
+  width: auto;
+  height: auto; /* Maintain aspect ratio */
+}
+
+@media only screen and (min-width: 768px) {
+  .split-section {
+    -ms-flex-direction: row !important;
+    flex-direction: row !important;
+    justify-content: flex-start;
+  }
+
+  .split-section div {
+    -ms-flex: 1 1 50%;
+    flex: 1 1 50%; /* Golden ratio */
+    padding: 1em;
+  }
+
+  #landing-section__image {
+    vertical-align: middle;
+  }
+
+  #landing-section__image img {
+    margin: auto;
+    transition: 1s;
+  }
+}
+
+#landing-section__image img:hover {
+  -webkit-filter: blur(4px);
+  filter: blur(1px);
+}
+
+#footer__container {
+  margin: var(--space-2xl-3xl) 0 auto;
+  border-top: 4px solid var(--border-color);
+  display: flex;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  align-items: center;
+  -webkit-box-shadow: 0px -4px 0px 0px hsl(205, 95%, 48%);
+  -moz-box-shadow: 0px -4px 0px 0px hsl(205, 95%, 48%);
+  box-shadow: 0px -4px 0px 0px hsl(205, 95%, 48%);
+}
+
+#footer__list {
+  display: flex;
+  justify-content: space-between;
+  gap: var(--space-2xl);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+#copyright-text {
+  max-width: 60ch;
+}
+
+/**************************************************
+ * Form and Content Element Resets (5)
+ *
+ * Form Controls:
+ * - Ensure `input`, `button`, `textarea`, and `select`
+ *   inherit font styles for a consistent look across elements.
+ *
+ * List and Table Resets:
+ * - Remove top margins on `li`, `dt`, `dd`, `br`, `th`, and `td`
+ *   to standardize spacing in lists and tables.
+ *
+ * Image Resizing:
+ * - Set `img` and `picture` to be responsive with `max-width: 100%`
+ *   and `display: block` to remove extra spacing in layouts.
+ **************************************************/
+
+input,
+button,
+textarea,
+select {
+  font-family: inherit;
+  font-size: inherit;
+}
+
+li,
+dt,
+dd,
+br,
+th,
+td {
+  margin-top: 0;
+}
+
+img,
+picture {
+  max-width: 100%;
+  display: block;
+}
+
+/*************************************************
+  * Accessibility and Animation (6)
+  * ::-moz-focus-inner
+  * - Removes the border around focused elements in Firefox.
+
+  * *:focus: 
+  * - Adds a box shadow around focused elements for better visibility.
+
+  * [href="#skip"]
+  * - Styles the skip link to be initially hidden but focusable.
+
+  * sr-only
+  * - A utility class to hide elements visually while keeping them 
+  *   accessible to screen readers. Useful for providing 
+  *   information to users relying on assistive technology without 
+  *   affecting the visual layout of the page.
+  
+  * Accessibility Adjustment for Reduced Motion
+  * - This media query targets users who prefer reduced motion or are using devices with slow updates.
+  *   It minimizes motion effects by:
+  *    - Reducing `animation-duration` and `transition-duration` to near-zero,
+  *    - Limiting `animation-iteration-count` to 1.
+  
+  * Animation for Gradient Text Ripple Effect
+  * - This block checks for users who prefer animations (`prefers-reduced-motion: no-preference`).
+  *    - `.gradient-ripple`: Adds a moving background effect to create a "ripple" animation.
+  *    - `@keyframes move-bg`: Shifts the background horizontally across the text for a dynamic gradient.
+  * - The animation runs infinitely, smoothly moving over a 5-second linear duration.
+  **************************************************/
+
+::-moz-focus-inner {
+  border: 0;
+}
+
+*:focus {
+  box-shadow: 0 0 0 4px var(--outline-color);
+}
+
+[href="#skip"] {
+  position: absolute;
+  top: 0;
+  right: 100%;
+  /* moves off screen */
+}
+
+[href="#skip"]:focus {
+  right: auto;
+}
+
+.sr-only {
+  border: 0 !important;
+  clip: rect(1px, 1px, 1px, 1px) !important;
+  -webkit-clip-path: inset(50%) !important;
+  clip-path: inset(50%) !important;
+  height: 1px !important;
+  margin: -1px !important;
+  overflow: hidden !important;
+  padding: 0 !important;
+  position: absolute !important;
+  width: 1px !important;
+  white-space: nowrap !important;
+}
+
+@media screen and (prefers-reduced-motion: reduce), (update: slow) {
+  * {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .gradient-ripple {
+    animation: move-bg 5s linear infinite;
+  }
+
+  @keyframes move-bg {
+    to {
+      background-position: var(--bg-size) 0;
+    }
+  }
+}

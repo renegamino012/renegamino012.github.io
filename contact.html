@@ -4,11 +4,11 @@
     <meta charset="UTF-8" />
     <!-- Viewport declaration which does not disable zooming -->
     <meta name="viewport" content="width=device-width,initial-scale=1" />
-    <!-- Style sheets -->
+    <!-- Style sheets-->
     <link rel="stylesheet" href="assets/css/reset.min.css" />
     <link rel="stylesheet" href="assets/css/main.min.css" />
     <!-- Descriptive label for the page -->
-    <title>Home | Rene Gamino's Portfolio</title>
+    <title>Contact | Rene Gamino's Portfolio</title>
     <!-- Favicon -->
     <link
       rel="icon"
@@ -29,15 +29,18 @@
     <!-- Social media meta tags -->
     <meta
       name="description"
-      content="Rene Gamino is a front-end developer, based in the County of Los Angeles, California. Passionate about creating interactive and accessible applications - mobile and web - Gamino is dedicated to building user-friendly solutions that enhances digital experiences for diverse audiences."
+      content="Contact Page for Front-End Developer Rene Gamino"
     />
     <meta property="og:site_name" content="Rene Gamino's Portfolio" />
-    <meta property="og:title" content="Home - Rene Gamino's Portfolio" />
+    <meta property="og:title" content="Contact - Rene Gamino's Portfolio" />
     <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://www.renegamino012@github.io" />
+    <meta
+      property="og:url"
+      content="https://www.renegamino012@github.io/contact"
+    />
     <meta
       property="og:description"
-      content="Welcome to Rene Gamino's Portfolio - showcasing skills, projects, and professional experience."
+      content="Contact Page for Front-End Developer Rene Gamino."
     />
     <meta property="og:image" content="/assets/images/headshot.png" />
   </head>
@@ -52,6 +55,7 @@
               id="logo__svg"
               width="80"
               height="57"
+              aria-current="true"
               xmlns="http://www.w3.org/2000/svg"
               title="Rene Gamino's Portfolio"
               version="1.0"
@@ -78,31 +82,38 @@
                 <a href="/projects">Projects</a>
               </li>
               <li>
-                <a href="/contact">Contact</a>
+                <a href="/contact" aria-current="page">Contact</a>
               </li>
             </ul>
           </nav>
         </div>
       </header>
       <main id="skip">
-        <div class="split-section flow">
-          <div id="landing-section__text">
-            <h1 class="gradient-ripple">Hi, I'm Rene</h1>
+        <div class="split-section">
+          <div class="flow section">
+            <h1 class="gradient-ripple">Contact</h1>
             <p>
-              Rene Gamino is a front-end developer, based in the County of Los
-              Angeles, California.
+              If you're interested in discussing a project, exploring employment
+              opportunities, or simply connecting to network, I'd love to hear
+              from you.
             </p>
             <p>
-              Passionate about creating interactive and accessible applications
-              &#8211; mobile and web &#8211; Gamino is dedicated to building
-              user-friendly solutions that enhances digital experiences for
-              diverse audiences.
+              <a href="mailto:rene_gamino012@berkeley.edu" class="underline"
+                >Email me</a
+              >
+              at
+              <strong>rene_gamino012@berkeley.edu</strong>
             </p>
-            <h2>Explore</h2>
+          </div>
+          <div class="flow section">
+            <h2>External Links</h2>
             <p>
-              Explore more of my professional profile and contributions through
-              the links below:
+              Feel free to connect with me and explore my work across these
+              platforms. Whether you're interested in my professional
+              background, coding projects, or code snippets, each link offers a
+              deeper look at my experience and skills.
             </p>
+            <strong>Find me here:</strong>
             <ul>
               <li>
                 <a
@@ -192,9 +203,6 @@
                 </a>
               </li>
             </ul>
-          </div>
-          <div id="landing-section__image">
-            <img src="assets/images/headshot.png" alt="Headshot" />
           </div>
         </div>
       </main>
