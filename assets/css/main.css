@@ -45,62 +45,44 @@
   --input-color: #fff;
   /* focus outline */
   --outline-color: #396493;
+  /* main navigation link color */
+  --select-color: #7066bc;
   /* hyperlink color */
   --hyperlink-color: #5252ff;
   /* gradient animation colors */
   --gradient-side-color: #058ef0;
   --gradient-center-color: #38abfc;
-  /* main navigation links */
-  --select-text: #002c61;
-  /* button background */
-  --button-bg: #396493;
-  /* button text background */
-  --button-color: #ffffff;
-  /* button background  (hover) */
-  --button-hover-bg: #253c56;
-  /* button text background (hover) */
-  --button-hover-color: #ffffff;
-  /* button background (focus) */
-  --button-focus-bg: #101419;
-  /* button text background (focus) */
-  --button-focus-color: #fafafa;
-  /* button border width */
-  --button-border-width: 3px;
-  /* button border style */
-  --button-border-style: solid;
-  /* button border color */
-  --button-border-color: var(--button-bg);
-  /* button border radius */
-  --button-radius: 0.5em;
 
   /* Spacing */
+  /* @link https://utopia.fyi/space/calculator?c=320,18,1.125,1024,20,1.2,5,1,&s=0.75|0.5|0.25,1.5|2|3|4|6,s-l&g=s,l,xl,12 */
   --space-3xs: clamp(0.3125rem, 0.3125rem + 0vw, 0.3125rem);
-  --space-2xs: clamp(0.5625rem, 0.5408rem + 0.1087vw, 0.625rem);
-  --space-xs: clamp(0.875rem, 0.8533rem + 0.1087vw, 0.9375rem);
-  --space-s: clamp(1.125rem, 1.0815rem + 0.2174vw, 1.25rem);
-  --space-m: clamp(1.6875rem, 1.6223rem + 0.3261vw, 1.875rem);
-  --space-l: clamp(2.25rem, 2.163rem + 0.4348vw, 2.5rem);
-  --space-xl: clamp(3.375rem, 3.2446rem + 0.6522vw, 3.75rem);
-  --space-2xl: clamp(4.5rem, 4.3261rem + 0.8696vw, 5rem);
-  --space-3xl: clamp(6.75rem, 6.4891rem + 1.3043vw, 7.5rem);
-  --space-3xs-2xs: clamp(0.3125rem, 0.2038rem + 0.5435vw, 0.625rem);
-  --space-2xs-xs: clamp(0.5625rem, 0.4321rem + 0.6522vw, 0.9375rem);
-  --space-xs-s: clamp(0.875rem, 0.7446rem + 0.6522vw, 1.25rem);
-  --space-s-m: clamp(1.125rem, 0.8641rem + 1.3043vw, 1.875rem);
-  --space-s-l: clamp(1.125rem, 0.6467rem + 2.3913vw, 2.5rem);
-  --space-m-l: clamp(1.6875rem, 1.4049rem + 1.413vw, 2.5rem);
-  --space-l-xl: clamp(2.25rem, 1.7283rem + 2.6087vw, 3.75rem);
-  --space-xl-2xl: clamp(3.375rem, 2.8098rem + 2.8261vw, 5rem);
-  --space-2xl-3xl: clamp(4.5rem, 3.4565rem + 5.2174vw, 7.5rem);
+  --space-2xs: clamp(0.5625rem, 0.5341rem + 0.142vw, 0.625rem);
+  --space-xs: clamp(0.875rem, 0.8466rem + 0.142vw, 0.9375rem);
+  --space-s: clamp(1.125rem, 1.0682rem + 0.2841vw, 1.25rem);
+  --space-m: clamp(1.6875rem, 1.6023rem + 0.4261vw, 1.875rem);
+  --space-l: clamp(2.25rem, 2.1364rem + 0.5682vw, 2.5rem);
+  --space-xl: clamp(3.375rem, 3.2045rem + 0.8523vw, 3.75rem);
+  --space-2xl: clamp(4.5rem, 4.2727rem + 1.1364vw, 5rem);
+  --space-3xl: clamp(6.75rem, 6.4091rem + 1.7045vw, 7.5rem);
+  --space-3xs-2xs: clamp(0.3125rem, 0.1705rem + 0.7102vw, 0.625rem);
+  --space-2xs-xs: clamp(0.5625rem, 0.392rem + 0.8523vw, 0.9375rem);
+  --space-xs-s: clamp(0.875rem, 0.7045rem + 0.8523vw, 1.25rem);
+  --space-s-m: clamp(1.125rem, 0.7841rem + 1.7045vw, 1.875rem);
+  --space-m-l: clamp(1.6875rem, 1.3182rem + 1.8466vw, 2.5rem);
+  --space-l-xl: clamp(2.25rem, 1.5682rem + 3.4091vw, 3.75rem);
+  --space-xl-2xl: clamp(3.375rem, 2.6364rem + 3.6932vw, 5rem);
+  --space-2xl-3xl: clamp(4.5rem, 3.1364rem + 6.8182vw, 7.5rem);
+  --space-s-l: clamp(1.125rem, 0.5rem + 3.125vw, 2.5rem);
 
   /* Typographic Scale */
-  --step--1: clamp(0.8333rem, 0.7754rem + 0.2899vw, 1rem);
-  --step-0: clamp(1rem, 0.913rem + 0.4348vw, 1.25rem);
-  --step-1: clamp(1.2rem, 1.0739rem + 0.6304vw, 1.5625rem);
-  --step-2: clamp(1.44rem, 1.2615rem + 0.8924vw, 1.9531rem);
-  --step-3: clamp(1.728rem, 1.4799rem + 1.2407vw, 2.4414rem);
-  --step-4: clamp(2.0736rem, 1.7334rem + 1.7011vw, 3.0518rem);
-  --step-5: clamp(2.4883rem, 2.027rem + 2.3067vw, 3.8147rem);
+  /* @link https://utopia.fyi/type/calculator?c=320,18,1.125,1024,20,1.2,5,1,&s=0.75|0.5|0.25,1.5|2|3|4|6,s-l&g=s,l,xl,12 */
+  --step--1: clamp(1rem, 0.9811rem + 0.0947vw, 1.0417rem);
+  --step-0: clamp(1.125rem, 1.0682rem + 0.2841vw, 1.25rem);
+  --step-1: clamp(1.2656rem, 1.1591rem + 0.5327vw, 1.5rem);
+  --step-2: clamp(1.4238rem, 1.2528rem + 0.8549vw, 1.8rem);
+  --step-3: clamp(1.6018rem, 1.3481rem + 1.2686vw, 2.16rem);
+  --step-4: clamp(1.802rem, 1.443rem + 1.7954vw, 2.592rem);
+  --step-5: clamp(2.0273rem, 1.535rem + 2.4616vw, 3.1104rem);
 
   /* Additional */
   --bg-size: 400%;
@@ -250,7 +232,7 @@ a.underline:focus {
 
 #site-nav a {
   font-size: var(--step-1);
-  color: var(--select-text);
+  color: var(--hyperlink-color);
   text-decoration: none;
   margin: 0;
   padding: var(--space-2xs) var(--space-xs);
