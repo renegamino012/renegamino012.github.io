@@ -51,17 +51,17 @@
       <header id="site-header">
         <div id="site-header__container">
           <a href="/" class="logo-link">
+            <span class="sr-only">Home</span>
             <svg
               id="logo__svg"
               width="80"
               height="57"
-              aria-current="true"
               xmlns="http://www.w3.org/2000/svg"
-              aria-labelledby="logo__title"
               version="1.0"
               role="img"
+              focusable="false"
+              aria-hidden="true"
             >
-              <title id="logo__title">Rene Gamino's Portfolio</title>
               <g id="Layer_1">
                 <path
                   id="svg_2"
@@ -80,7 +80,7 @@
                 <a href="/about">About</a>
               </li>
               <li>
-                <a href="/projects" aria-current="page">Projects </a>
+                <a href="/projects" aria-current="page">Projects</a>
               </li>
               <li>
                 <a href="/contact">Contact</a>
@@ -89,7 +89,7 @@
           </nav>
         </div>
       </header>
-      <main>
+      <main id="skip">
         <div id="about" class="flow section">
           <h1 class="gradient-ripple">Projects</h1>
           <div class="articles-container flow">
